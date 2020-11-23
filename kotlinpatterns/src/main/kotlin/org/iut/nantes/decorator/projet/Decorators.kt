@@ -3,6 +3,7 @@ package org.iut.nantes.decorator.projet
 class ChefDeProject(employe: Employe) : Decorator(employe, 2f) {
     override fun superviser() {
         println("Je supervise le projet ${projet.nom}")
+        projet.description += "supervisé par $nom"
     }
 }
 

@@ -1,6 +1,6 @@
 package org.iut.nantes.decorator.projet
 
-class Projet(val nom: String, val description: String) {
+class Projet(val nom: String, var description: String) {
 
 
 }

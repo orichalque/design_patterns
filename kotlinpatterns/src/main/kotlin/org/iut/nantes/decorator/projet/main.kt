@@ -5,10 +5,15 @@ fun main() {
     val pierre = EmployeConcret("Pierre", projet, 1180f)
 
     println("Avec son poste d'employé, Pierre touche ${pierre.salaire} €")
-    println("Quand il est architecte, ${pierre.nom} touche: ${Architecte(pierre).salaire} €")
-    println("Quand il est architecte et développeur, ${pierre.nom} touche: ${Developpeur(Architecte(pierre)).salaire} €")
+    val archiPierre = Architecte(pierre)
 
-    val superPierre = ChefDeProject(Architecte(Developpeur(Analyste(pierre))))
+    println("Quand il est architecte, ${pierre.nom} touche: ${archiPierre.salaire} €")
+
+    val archiDevPierre = Developpeur(archiPierre);
+
+    println("Quand il est architecte et développeur, ${pierre.nom} touche: ${archiDevPierre.salaire} €")
+
+    val superPierre = ChefDeProject(Analyste(archiDevPierre))
     superPierre.coder()
     superPierre.definirFonctions()
     superPierre.definirOutils()
