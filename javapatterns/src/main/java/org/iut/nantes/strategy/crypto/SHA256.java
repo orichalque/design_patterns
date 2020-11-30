@@ -1,5 +1,6 @@
 package org.iut.nantes.strategy.crypto;
 
+import javax.xml.bind.DatatypeConverter;
 import java.security.*;
 import java.math.*;
 
@@ -14,6 +15,6 @@ public class SHA256 implements CrypteStrategy
 
   public String encode(String s)
   {
-    return new String( m.digest( s.getBytes() ) );
+    return DatatypeConverter.printHexBinary( m.digest( s.getBytes() ) );
   }
 }

@@ -1,5 +1,6 @@
 package org.iut.nantes.strategy.crypto;
 
+import javax.xml.bind.DatatypeConverter;
 import java.security.*;
 import java.math.*;
 
@@ -16,6 +17,6 @@ public class MD5 implements CrypteStrategy
   {
     // m.update( s.getBytes() );
     // return new String( m.digest() );
-    return new String( m.digest( s.getBytes() ) );
+    return DatatypeConverter.printHexBinary( m.digest( s.getBytes() ) );
   }
 }
