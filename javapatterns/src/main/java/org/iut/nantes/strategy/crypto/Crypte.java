@@ -6,49 +6,15 @@ import java.io.*;
 
 class Crypte
 {
-  public static void main(String [] args)
-  {
-    CrypteStrategy crypte = null;
-    String mess;
-    String s = "Le message caché";
+  public static void main(String [] args) throws Exception {
+    String message = "mon message";
+    CryptContext cryptContext = new CryptContext(new MD5());
+    System.out.println(cryptContext.encode(message));
 
-    try
-    {
-      crypte = new MD5();
-    }
-    catch(Exception e)
-    {
-      System.out.println("Erreur MD5\n");
-      e.printStackTrace();
-    }
+    cryptContext.setCrypteStrategy(new SHA256());
+    System.out.println(cryptContext.encode(message));
 
-    mess = crypte.encode(s);
-    System.out.println(mess);    
-
-    try
-    {
-      crypte = new SHA256();
-    }
-    catch(Exception e)
-    {
-      System.out.println("Erreur SHA256\n");
-      e.printStackTrace();
-    }
-
-    mess = crypte.encode(s);
-    System.out.println(mess);    
-
-    try
-    {
-      crypte = new SHA512();
-    }
-    catch(Exception e)
-    {
-      System.out.println("Erreur SHA512\n");
-      e.printStackTrace();
-    }
-
-    mess = crypte.encode(s);
-    System.out.println(mess);    
+    cryptContext.setCrypteStrategy(new SHA512());
+    System.out.println(cryptContext.encode(message));
   }
 }
