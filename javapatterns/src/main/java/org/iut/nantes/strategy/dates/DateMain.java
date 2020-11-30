@@ -12,20 +12,15 @@ public class DateMain
       est directement utilisé dans la méthode principale.
      */
 
-    
-    DateFormatStrat dateFormat;
+    DateFormatter dateFormatter = new DateFormatter(new FormatIntl());
     Date date = new Date();
 
-    dateFormat = new FormatUk();
-    System.out.println( "Aujourd'hui en UK : " + 
-			dateFormat.formatStrat( date ) );
+    System.out.println(dateFormatter.format(date));
 
-    dateFormat = new FormatUs();
-    System.out.println( "Aujourd'hui en US : " + 
-			dateFormat.formatStrat( date ) );
+    dateFormatter.setFormatStrat(new FormatUk());
+    System.out.println(dateFormatter.format(date));
 
-    dateFormat = new FormatIntl();
-    System.out.println( "Aujourd'hui dans le monde : " + 
-			dateFormat.formatStrat( date ) );
+    dateFormatter.setFormatStrat(new FormatUs());
+    System.out.println(dateFormatter.format(date));
   }
 }

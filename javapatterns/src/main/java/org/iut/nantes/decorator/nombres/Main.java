@@ -1,9 +1,7 @@
 package org.iut.nantes.decorator.nombres;
 
-class Main
-{
-  public static void main( String argv[] )
-  {
+class Main {
+  public static void main(String[] args) {
     NombreAbstrait nb = new Entier( 42 );
 
     nb = new Binaire( nb );
