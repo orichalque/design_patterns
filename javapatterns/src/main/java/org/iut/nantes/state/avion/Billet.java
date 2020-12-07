@@ -7,6 +7,7 @@ class Billet
   private Date date_;
 
   private Etat courant_;
+
   private Etat pasDeBillet_;
   private Etat reserve_;
   private Etat paye_;

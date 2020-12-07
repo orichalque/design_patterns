@@ -6,7 +6,6 @@ class Main
   {
     Horloge h = new Horloge();
     Affichage aff = new Affichage( h );
-
     System.out.println("L'horloge va fonctionner 10 secondes :");
     
     for( int i = 0 ; i < 10 ; ++i )

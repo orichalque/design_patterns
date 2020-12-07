@@ -1,6 +1,25 @@
 package org.iut.nantes.observer.horloge;
 
-class Affichage extends Observer
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+class Affichage implements Observer
 {
-  public Affichage( Sujet s ) { super(s); }
+  private Date date;
+  private Sujet sujet;
+  private DateFormat dateFormat;
+
+  public Affichage( Sujet s )
+  {
+    sujet = s;
+    sujet.ajoutObs( this );
+    dateFormat = new SimpleDateFormat( "HH:mm:ss" );
+  }
+
+  public void update( Date date )
+  {
+    this.date = date;
+    System.out.println( dateFormat.format( date ) );
+  }
 }
