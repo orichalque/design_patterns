@@ -1,7 +1,12 @@
 package org.iut.nantes.decorator.concession
 
 abstract class Serie {
-    abstract fun cout() : Float
+    abstract var cout: Float
+    abstract var carburant: Carburant
+
+    open fun cout(): Float {
+        return cout + if (carburant == Carburant.GASOIL) 500f else 0f
+    }
 }
 
 enum class Carburant {
@@ -10,25 +15,16 @@ enum class Carburant {
 }
 
 class Modele325 : Serie() {
-    var carburant = Carburant.ESSENCE
-
-    override fun cout(): Float {
-        return 32500f + if (carburant == Carburant.GASOIL) 500f else 0f
-    }
+    override var carburant = Carburant.ESSENCE
+    override var cout = 32500f
 }
 
 class Modele330: Serie() {
-    var carburant = Carburant.ESSENCE
-
-    override fun cout(): Float {
-        return 33000f + if (carburant == Carburant.GASOIL) 600f else 0f
-    }
+    override var carburant = Carburant.ESSENCE
+    override var cout = 33000f
 }
 
 class Modele535: Serie() {
-    var carburant = Carburant.ESSENCE
-
-    override fun cout(): Float {
-        return 53500f + if (carburant == Carburant.GASOIL) 800f else 0f
-    }
+    override var carburant = Carburant.ESSENCE
+    override var cout = 53500f
 }
